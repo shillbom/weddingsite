@@ -35,7 +35,7 @@ gulp.task('copy', function () {
 
 // deploy 
 gulp.task('deploy', gulp.series('sass', 'minify-js', 'copy'), function () {
-    return gulp.src("./dist/**/*")
+    return gulp.src("dist")
       .pipe(deploy({ force: true }))
   });
 
