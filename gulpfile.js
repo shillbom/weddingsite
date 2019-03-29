@@ -27,17 +27,5 @@ gulp.task('minify-js', function () {
         .pipe(gulp.dest('./js'));
 });
 
-// minify js
-gulp.task('copy', function () {
-    return gulp.src(['*js/**/*', '*css/**/*', '*img/**/*' ,'index.html', 'CNAME', '*.png', 'manifest.json', '*.ico', '.nojekyll'])
-        .pipe(gulp.dest('./dist'));
-});
-
-// deploy 
-gulp.task('deploy', gulp.series('sass', 'minify-js', 'copy'), function () {
-    return gulp.src("dist")
-      .pipe(deploy({ force: true }))
-  });
-
 // default task
 gulp.task('default', gulp.series('sass', 'minify-js'));
