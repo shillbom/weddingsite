@@ -452,7 +452,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-key"></i><input type="number" name="invite_code" id="invite_code"
+                                <i class="fa fa-key"></i><input name="invite_code" id="invite_code"
                                                                 class="" min="0"
                                                                 placeholder="Inbjudningskod"
                                                                 required>
@@ -460,11 +460,30 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-utensils"></i><input name="allergies" class="" id="allergies"
+                                                                  max="5"
+                                                                  placeholder="Nåt ni inte äter?">
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-input-group">
+                                <i class="fa fa-hotel"></i><select type="checkbox" name="hotel" id="hotel"
+                                                                class=""
+                                                                required>
+                                                            <option value="" disabled selected>Hur vill du bo?</option>
+                                                            <option value="No">Jag vill sova våningssäng</option>
+                                                            <option value="Yes">Jag vill köpa till stugboende</option>
+                                                            </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12" id="alert-wrapper"></div>
                     </div>
                     <button class="btn-fill rsvp-btn">
-                        Ja,
-                        det är jag!
+                        Detta ser ut att stämma!
                     </button>
                 </form>
             </div>
