@@ -36,5 +36,4 @@ typings/
 .sass-cache/
 *.css.map
 .publish
-dist
 node_modules
