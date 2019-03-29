@@ -30,7 +30,7 @@ gulp.task('minify-js', function () {
 // minify js
 gulp.task('copy', function () {
     return gulp.src(['*js/**/*', '*css/**/*', 'index.html', 'CNAME', '*.png', 'manifest.json', '*.ico'])
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('./dist'));
 });
 
 // deploy 
