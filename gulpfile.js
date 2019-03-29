@@ -27,8 +27,14 @@ gulp.task('minify-js', function () {
         .pipe(gulp.dest('./js'));
 });
 
+// minify js
+gulp.task('copy', function () {
+    return gulp.src(['*js/**/*', '*css/**/*', 'index.html', '*.png', 'manifest.json', '*.ico'])
+        .pipe(gulp.dest('dist'));
+});
+
 // deploy 
-gulp.task('deploy', function () {
+gulp.task('deploy', gulp.series('sass', 'minify-js', 'copy'), function () {
     return gulp.src("./dist/**/*")
       .pipe(deploy())
   });
