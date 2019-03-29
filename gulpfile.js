@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var deploy = require('gulp-gh-pages');
 
 // compile scss to css
 gulp.task('sass', function () {
@@ -25,6 +26,12 @@ gulp.task('minify-js', function () {
         .pipe(rename({basename: 'scripts.min'}))
         .pipe(gulp.dest('./js'));
 });
+
+// deploy 
+gulp.task('deploy', function () {
+    return gulp.src("./dist/**/*")
+      .pipe(deploy())
+  });
 
 // default task
 gulp.task('default', gulp.series('sass', 'minify-js'));
