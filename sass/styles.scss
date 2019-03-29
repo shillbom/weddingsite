@@ -251,8 +251,13 @@ Navigation
 Hero
 ========================================================================== */
 .hero {
+  @media (max-width: 768px) {
+    background: url('../img/hero-min.jpg') center center;
+  }
+  @media (min-width: 768px) {
+    background: url('../img/hero.jpg') center center;  
+  }
   min-height: 750px;
-  background: url('../img/hero-min.jpg') center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
