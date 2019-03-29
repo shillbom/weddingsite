@@ -29,7 +29,7 @@ gulp.task('minify-js', function () {
 
 // minify js
 gulp.task('copy', function () {
-    return gulp.src(['*js/**/*', '*css/**/*', 'index.html', '*.png', 'manifest.json', '*.ico'])
+    return gulp.src(['*js/**/*', '*css/**/*', 'index.html', 'CNAME', '*.png', 'manifest.json', '*.ico'])
         .pipe(gulp.dest('dist'));
 });
 
