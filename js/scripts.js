@@ -237,29 +237,29 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var itc_kol = {lat: 22.5932759, lng: 88.27027720000001};
+    var ahus = {lat: 55.9444317, lng: 14.3188949};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
-        center: itc_kol,
+        center: ahus,
         scrollwheel: false
     });
 
     var marker = new google.maps.Marker({
-        position: itc_kol,
+        position: ahus,
         map: map
     });
 }
 
 function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
+    var ahus = {lat: 55.9444317, lng: 14.3188949};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
-        center: la_fiesta,
+        center: ahus,
         scrollwheel: false
     });
 
     var marker = new google.maps.Marker({
-        position: la_fiesta,
+        position: ahus,
         map: map
     });
 }
