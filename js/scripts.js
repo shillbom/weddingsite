@@ -111,7 +111,7 @@ $(document).ready(function () {
                     "top": "26px",
                 });
                 $('header .navicon').css({
-                    "top": "48px",
+                    "top": "34px",
                 });
             }
         });
