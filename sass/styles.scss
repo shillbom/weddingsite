@@ -282,8 +282,20 @@ Hero
     font-weight: 300;
     margin-bottom: 80px;
   }
-  .hero-content {
-    padding-top: 27%;
+  @media (max-width: 768px) {
+    .hero-content {
+      padding-top: 30%;
+    }
+  }
+  @media (max-width: 1200px) {
+    .hero-content {
+      padding-top: 27%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .hero-content {
+      padding-top: 15%;
+    }
   }
   @media (max-width: 768px) {
     .hero-content img {
