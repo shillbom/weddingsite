@@ -285,10 +285,20 @@ Hero
   .hero-content {
     padding-top: 27%;
   }
-  .hero-content img {
-    width: 55%;
-    margin-bottom: -2%;
+  @media (max-width: 768px) {
+    .hero-content img {
+      width: 105% !important;
+      margin-bottom: -3%;
+      margin-top: -66px;  
+    }
   }
+  @media (min-width: 768px) {
+    .hero-content img {
+      width: 70%;
+      margin-bottom: -2%;
+    }
+  }
+
 }
 .navigation {
   transition: all 300ms ease-in-out;
