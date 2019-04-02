@@ -82,7 +82,7 @@
         <div class="row">
             <div class="col-sm-4 hidden-xs"></div>
             <div class="col-sm-4 hidden-xs text-center"><a href="#rsvp"
-                                                           class="btn btn-accent btn-large rsvp-btn">RSVP</a></div>
+                                                           class="btn btn-accent btn-large rsvp-btn">OSA</a></div>
             <div class="col-sm-4 hidden-xs"></div>
         </div>
     </div>
@@ -431,7 +431,7 @@
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-user"></i><input name="name" class=""
+                                <i class="fa fa-user"></i><input name="namn" class=""
                                                                  placeholder="Namn"
                                                                  required>
                             </div>
@@ -440,7 +440,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-users"></i><input type="number" name="extras" class="" min="1"
+                                <i class="fa fa-users"></i><input type="number" name="antal" class="" min="1"
                                                                   max="5"
                                                                   placeholder="Hur många är ni?"
                                                                   required>
@@ -458,19 +458,19 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-utensils"></i><input name="allergies" class="" id="allergies"
+                                <i class="fa fa-utensils"></i><input name="allergier" class=""
                                                                   max="5"
                                                                   placeholder="Nåt ni inte äter?">
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <div class="form-input-group">
-                                <i class="fa fa-hotel"></i><select type="checkbox" name="hotel" id="hotel"
+                                <i class="fa fa-hotel"></i><select type="checkbox" name="bor på hotell" id="hotel"
                                                                 class=""
                                                                 required>
                                                             <option value="" disabled selected>Hur vill du bo?</option>
-                                                            <option value="No">Jag vill sova våningssäng</option>
-                                                            <option value="Yes">Jag fixar eget boende!</option>
+                                                            <option value="Nej">Jag vill sova våningssäng</option>
+                                                            <option value="Ja">Jag fixar eget boende!</option>
                                                             </select>
                             </div>
                         </div>
@@ -507,6 +507,9 @@
 <script src="js/vendor/jquery.waypoints.min.js"></script>
 <script src="js/vendor/ouical.js"></script>
 <script src="js/scripts.min.js"></script>
+<!-- <script src="js/scripts.js"></script> -->
+
+
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJcNyeUJU97M1Kl1EgbC135mh1B-99URE&callback=initMap"></script>
 <!-- Google Analytics -->
