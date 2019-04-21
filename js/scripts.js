@@ -184,23 +184,23 @@ $(document).ready(function () {
         },
         data: {
             // Event title
-            title: "Ram and Antara's Wedding",
+            title: "Josefin och Simons bröllop",
 
             // Event start date
-            start: new Date('Nov 27, 2017 10:00'),
+            start: new Date('Sep 7, 2019 15:00'),
 
             // Event duration (IN MINUTES)
             // duration: 120,
 
             // You can also choose to set an end time
             // If an end time is set, this will take precedence over duration
-            end: new Date('Nov 29, 2017 00:00'),
+            end: new Date('Sep 8, 2019 10:00'),
 
             // Event Address
-            address: 'ITC Fortune Park Hotel, Kolkata',
+            address: 'Strandvillan, Åhus',
 
             // Event Description
-            description: "We can't wait to see you on our big day. For any queries or issues contact Mr. Amit Roy at +91 9435021804 or +91 7086018971."
+            description: "Vigseln är klockan 15 på Lördagen, men det går bra att komma tidigare och installera sig i sitt boende och kanske ta ett dopp innan ni svidar om."
         }
     });
 
@@ -212,9 +212,9 @@ $(document).ready(function () {
         e.preventDefault();
         var data = $(this).serialize();
 
-        $('#alert-wrapper').html(alert_markup('info', '<strong>Vänta en sekund!</strong>Din anmälning sparas.'));
+        $('#alert-wrapper').html(alert_markup('info', '<strong>Vänta en sekund!</strong> Din anmälning sparas.'));
 
-        if (MD5($('#invite_code').val()) !== '8508de6aaa078c5d06fddb23e33a734f') {
+        if (MD5($('#invite_code').val()) !== 'b20c23837b21905e63ba2777b46359d8') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Koden ser ut att vara fel!'));
         } else {
             $.post('https://script.google.com/macros/s/AKfycbyp_cQTAqZDXKqbJIJOp0K2XKC9KgEVgx7pH8ZEEI1k_Kr_JZI/exec', data)
