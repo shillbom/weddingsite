@@ -188,6 +188,7 @@ $(document).ready(function () {
 
             // Event start date
             start: new Date('Sep 7, 2019 15:00'),
+            text: "Lägg till i kalender",
 
             // Event duration (IN MINUTES)
             // duration: 120,
