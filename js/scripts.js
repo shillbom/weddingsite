@@ -215,7 +215,7 @@ $(document).ready(function () {
         $('#alert-wrapper').html(alert_markup('info', '<strong>Vänta en sekund!</strong> Din anmälning sparas.'));
 
         if (MD5($('#invite_code').val()) !== 'b20c23837b21905e63ba2777b46359d8') {
-            $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Koden ser ut att vara fel!'));
+            $('#alert-wrapper').html(alert_markup('danger', '<strong>Ajdå!</strong> Koden ser ut att vara fel!'));
         } else {
             $.post('https://script.google.com/macros/s/AKfycbyp_cQTAqZDXKqbJIJOp0K2XKC9KgEVgx7pH8ZEEI1k_Kr_JZI/exec', data)
                 .done(function (data) {
@@ -225,7 +225,12 @@ $(document).ready(function () {
                 })
                 .fail(function (data) {
                     console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Något ser ut att ha gått fel, ajdå. '));
+                    if (ga == null) {
+                        $('#alert-wrapper').html(alert_markup('danger', '<strong>Ajdå!</strong> Det ser ut som om ditt adblock stoppade anropet, stäng av det och prova igen '));
+                    } else {
+                        $('#alert-wrapper').html(alert_markup('danger', '<strong>Ajdå!</strong> Något ser ut att ha gått fel, Skicka gärna ett meddelande till Simon'));
+                    }
+
                 });
         }
     });
