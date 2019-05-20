@@ -226,7 +226,8 @@ $(document).ready(function () {
                 })
                 .fail(function (data) {
                     console.log(data);
-                    if (ga == null) {
+                    debugger;
+                    if (ga == null || data.statusText == 'error') {
                         $('#alert-wrapper').html(alert_markup('danger', '<strong>Ajdå!</strong> Det ser ut som om ditt adblock stoppade anropet, stäng av det och prova igen '));
                     } else {
                         $('#alert-wrapper').html(alert_markup('danger', '<strong>Ajdå!</strong> Något ser ut att ha gått fel, Skicka gärna ett meddelande till Simon'));
