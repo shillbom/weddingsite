@@ -47,17 +47,22 @@ function initGraph() {
     };
     var nw = new vis.Network(container, data, options);
     var selected = null;
+    nw.on("deselectNode", function (params) {
+        var node = params.previousSelection.nodes[0];
+        if (node != null) {
+            nodes.update({ id: node, label: shortName(node), size: null });
+        }
+    });
     nw.on("click", function (params) {
         var node = params.nodes[0];
         if (node == null || node == selected) {
-            if (selected != null)
-                nodes.update({ id: selected, label: shortName(selected), size: null });
+            if (selected != null) nodes.update({ id: selected, label: shortName(selected), size: null });
+            
             selected = null;
         } else {
             nodes.update({ id: node, label: getNode(node).name, size: 80 })
 
-            if (selected != null)
-                nodes.update({ id: selected, label: shortName(selected), size: null });
+            if (selected != null) nodes.update({ id: selected, label: shortName(selected), size: null });
             selected = node;
         }  
     });
