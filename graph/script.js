@@ -15,11 +15,11 @@ function initGraph() {
 
     people.forEach(p => {
         dataset.push(
-            { id: p.id, label: shortName(p.id, p), shape: 'circularImage', image: 'images/' + p.id + '.jpg' }
+            { id: p.id, label: shortName(p.id, p), shape: 'circularImage', image: 'images/' + p.id + '.png' }
         );
     });
     dataset.push(
-        { id: 'lth', label: 'LTH', shape: 'circularImage', image: 'images/lth.jpg' }
+        { id: 'lth', label: 'LTH', shape: 'circularImage', image: 'images/lth.png' }
     );
 
     var nodes = new vis.DataSet(dataset);
