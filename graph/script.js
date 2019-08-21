@@ -15,7 +15,7 @@ function initGraph() {
 
     people.forEach(p => {
         dataset.push(
-            { id: p.id, label: p.name, shape: 'circularImage', image: 'images/' + p.id + '.jpg' }
+            { id: p.id, label: shortName(p.id, p), shape: 'circularImage', image: 'images/' + p.id + '.jpg' }
         );
     });
     dataset.push(
@@ -32,10 +32,9 @@ function initGraph() {
     var container = document.getElementById('thegraph');
 
     var options = {
-        locale: 'sv',
         nodes: {
-            borderWidth: 8,
-            size: 30,
+            borderWidth: 4,
+            size: 40,
             color: {
                 border: '#222222',
                 background: '#666666'
@@ -46,7 +45,34 @@ function initGraph() {
         },
         hierarchical: true
     };
-    new vis.Network(container, data, options);
+    var nw = new vis.Network(container, data, options);
+    nw.on("selectNode", function (params) {
+        var id = params.nodes[0];
+        nodes.update({ id: id, label: getNode(id).name, size: 80 })
+    });
+    nw.on("deselectNode", function (params) {
+        var id = params.previousSelection.nodes[0];
+        nodes.update({ id: id, label: shortName(id), size: null })
+    });
+}
+
+
+function shortName(id, node) {
+    if (node == null) {
+        node = getNode(id);
+    }
+
+    return node.name.split(' ')[0];
+}
+
+function getNode(id) {
+    for (var i = 0; i < people.length; i++) {
+        if (people[i].id == id) {
+            return people[i];
+        }
+    }
+
+    return null;
 }
 
 // create an array with edges
@@ -80,7 +106,7 @@ var edges = new vis.DataSet([
     { from: 'josefinhillbom', to: 'johankarlsson', label: 'Bror' },
     { from: 'josefinhillbom', to: 'antonkarlsson', label: 'Bror' },
     { from: 'antonkarlsson', to: 'carinakarlsson', label: 'gifta' },
-    { from: 'johankarlsson', to: 'sarakarlsson', label: 'gifta' },
+    { from: 'johankarlsson', to: 'sarakarlsson', label: 'förlovade' },
 
     { from: 'carinakarlsson', to: 'alvakarlsson' },
     { from: 'carinakarlsson', to: 'alexanderroserlius' },
