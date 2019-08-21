@@ -34,7 +34,7 @@ function initGraph() {
     var options = {
         nodes: {
             borderWidth: 4,
-            size: 40,
+            size: 35,
             color: {
                 border: '#222222',
                 background: '#666666'
@@ -46,16 +46,22 @@ function initGraph() {
         hierarchical: true
     };
     var nw = new vis.Network(container, data, options);
-    nw.on("selectNode", function (params) {
-        var id = params.nodes[0];
-        nodes.update({ id: id, label: getNode(id).name, size: 80 })
-    });
-    nw.on("deselectNode", function (params) {
-        var id = params.previousSelection.nodes[0];
-        nodes.update({ id: id, label: shortName(id), size: null })
+    var selected = null;
+    nw.on("click", function (params) {
+        var node = params.nodes[0];
+        if (node == null || node == selected) {
+            if (selected != null)
+                nodes.update({ id: selected, label: shortName(selected), size: null });
+            selected = null;
+        } else {
+            nodes.update({ id: node, label: getNode(node).name, size: 80 })
+
+            if (selected != null)
+                nodes.update({ id: selected, label: shortName(selected), size: null });
+            selected = node;
+        }  
     });
 }
-
 
 function shortName(id, node) {
     if (node == null) {
