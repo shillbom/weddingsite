@@ -66,6 +66,13 @@ function initGraph() {
             selected = node;
         }  
     });
+
+    window.setTimeout(() => {
+        nw.fit({
+            nodes:['josefinhillbom', 'simonhillbom'],
+            animation: true
+          });
+    }, 1500)
 }
 
 function shortName(id, node) {
