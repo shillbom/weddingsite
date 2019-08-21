@@ -56,7 +56,7 @@ var edges = new vis.DataSet([
     { from: 'simonhillbom', to: 'björnhillbom', label: 'Pappa' },
     { from: 'simonhillbom', to: 'sofiehillbom', label: 'Syster' },
     { from: 'simonhillbom', to: 'izahillbom', label: 'Syster' },
-    { from: 'somfiehillbom', to: 'samuelzeitler', label: 'sambo' },
+    { from: 'sofiehillbom', to: 'samuelzeitler', label: 'sambo' },
 
 
     { from: 'simonhillbom', to: 'örjanhillbom', label: 'Farbror' },
@@ -88,6 +88,31 @@ var edges = new vis.DataSet([
 
     { from: 'sarakarlsson', to: 'alfredkarlsson' },
 
+    { from: 'josefinhillbom', to: 'evagustavsson', label: 'Faster' },
+    { from: 'evagustavsson', to: 'alexandragustavsson' },
+    { from: 'alexandragustavsson', to: 'johanwesterberg', label: 'sambo' },
+    { from: 'evagustavsson', to: 'karlgustavsson' },
+    { from: 'karlgustavsson', to: 'linagustavsson', label: 'gift' },
+
+    { from: 'josefinhillbom', to: 'lill-annikabörjesson', label: 'Moster' },
+    { from: 'mattiasbrant', to: 'lill-annikabörjesson', label: 'gift' },
+
+    { from: 'josefinhillbom', to: 'catarinanyberg', label: 'Moster' },
+    { from: 'lellenyberg', to: 'catarinanyberg', label: 'gifta' },
+    { from: 'catarinanyberg', to: 'olofnyberg' },
+    { from: 'catarinanyberg', to: 'elinnyberg' },
+    { from: 'carlelfström', to: 'elinnyberg', label: 'sambo'},
+
+    { from: 'josefinhillbom', to: 'sunebörjesson', label: 'Morbror' },
+    { from: 'anitabröjesson', to: 'sunebörjesson', label: 'gifta' },
+
+    { from: 'josefinhillbom', to: 'ingebörjesson', label: 'Morbror' },
+    { from: 'annikabörjesson', to: 'ingebörjesson', label: 'Gifta' },
+    { from: 'annikabörjesson', to: 'johannesbörjesson' },
+    { from: 'viktoriabörjesson', to: 'johannesbörjesson', label: 'gifta' },
+
+    { from: 'annikabörjesson', to: 'teresiabörjesson' },
+    { from: 'niclasgamme', to: 'teresiabörjesson', label: 'förlovade' },
 
 
     // {from: 'evalisekarlsson', to: 'börjekarlsson', label: 'Gifta'},
@@ -107,7 +132,7 @@ var edges = new vis.DataSet([
     { from: 'peterseimar', to: 'lth' },
     { from: 'sannewintren', to: 'lth' },
     { from: 'niklaswintren', to: 'lth' },
-    { from: 'joellindholm', to: 'lth' },
+    // { from: 'joellindholm', to: 'lth' },
 
     // LTH related
     { from: 'joellindholm', to: 'simonhillbom', label: 'gymnasiet' },
@@ -120,6 +145,9 @@ var edges = new vis.DataSet([
     { from: 'kaiseråkerberg', to: 'saralindgren', label: 'sambo' },
     { from: 'perrylorénperván', to: 'gabriellalorénperván', label: 'gifta' },
     { from: 'sannewintren', to: 'niklaswintren', label: 'gifta' },
+
+    { from: 'simonhillbom', to: 'daglindahl', label: 'ex granne' },
+
 
 ]);
 
