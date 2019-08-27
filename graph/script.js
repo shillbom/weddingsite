@@ -59,10 +59,11 @@ function initGraph() {
     });
     var reset = false;
     nw.on("zoom", function (params) {
+        console.log(params.scale)
         if (reset) {
             return;
         }
-        if (params.scale > 7) {
+        if (params.scale > 7 || params.scale < 0.4) {
             reset = true;
             resetView();
             window.setTimeout(function() {
