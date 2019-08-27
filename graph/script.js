@@ -4,21 +4,10 @@ window.onload = function () {
 
 function initGraph() {
     var dataset = [];
-    // create an array with nodes
-    // var nodes = new vis.DataSet([
-    //     {id: 'simon', label: 'Node 1'},
-    //     {id: 2, label: 'Node 2'},
-    //     {id: 3, label: 'Node 3'},
-    //     {id: 4, label: 'Node 4'},
-    //     {id: 5, label: 'Node 5'}
-    // ]);
 
     people.forEach(p => {
-        dataset.push(getNode(p));
+        dataset.push(createNode(p));
     });
-    dataset.push(
-        { id: 'lth', label: 'LTH' }
-    );
 
     var nodes = new vis.DataSet(dataset);
     // create a network
@@ -87,10 +76,9 @@ function getNode(id) {
     return null;
 }
 
-function getNode(n) {
+function createNode(n) {
     node = { id: n.id, label: shortName(n.id, n) };
     if (n.id == 'josefinhillbom' || n.id == 'simonhillbom') {
-        //node.value = 150;
         if (n.id == 'josefinhillbom') {
             node.color = {
                 background: '#ffffff',
@@ -103,7 +91,6 @@ function getNode(n) {
             }
         }
     } else {
-        node.value = 30
         if (n.p) {
             node.color = {
                 background: '#03cffc',
@@ -511,5 +498,11 @@ var people = [
     {
         name: "Sofie Hillbom",
         id: "sofiehillbom"
+    }, 
+    {
+        name: "LTH",
+        id: "lth",
+        p: true
     }
+    
 ]
