@@ -1,7 +1,7 @@
 window.onload = function () {
     initGraph();
 };
-
+var nw = null;
 function initGraph() {
     var dataset = [];
 
@@ -36,7 +36,7 @@ function initGraph() {
         //     }
         // }
     };
-    var nw = new vis.Network(container, data, options);
+    nw = new vis.Network(container, data, options);
     var selected = null;
     nw.on("deselectNode", function (params) {
         var node = params.previousSelection.nodes[0];
@@ -62,25 +62,27 @@ function initGraph() {
         if (reset) {
             return;
         }
-        console.log(params.scale)
         if (params.scale > 7) {
             reset = true;
-            window.setTimeout(() => {
-                nw.fit({
-                    nodes:['josefinhillbom', 'simonhillbom'],
-                    animation: true
-                  });
+            resetView();
+            window.setTimeout(function() {
                 reset = false;
-            }, 1500)
+            }, 500)
         }
     });
 
-    window.setTimeout(() => {
-        nw.fit({
-            nodes:['josefinhillbom', 'simonhillbom'],
-            animation: true
-          });
+    document.getElementById("reset-button").onclick = function(){resetView()};
+
+    window.setTimeout(function() {
+        resetView();
     }, 1500)
+}
+
+function resetView() {
+    nw.fit({
+        nodes:['josefinhillbom', 'simonhillbom'],
+        animation: true
+      });
 }
 
 function shortName(id, node) {
