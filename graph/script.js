@@ -14,15 +14,10 @@ function initGraph() {
     // ]);
 
     people.forEach(p => {
-        dataset.push(
-            { id: p.id, label: shortName(p.id, p), 
-                // shape: 'circularImage', 
-                // image: 'images/' + p.id + '.png' 
-            }
-        );
+        dataset.push(getNode(p));
     });
     dataset.push(
-        { id: 'lth', label: 'LTH', shape: 'circularImage', image: 'images/lth.png' }
+        { id: 'lth', label: 'LTH' }
     );
 
     var nodes = new vis.DataSet(dataset);
@@ -36,18 +31,13 @@ function initGraph() {
 
     var options = {
         nodes: {
+            //shape: 'dot',
             borderWidth: 2,
-            //size: 35,
-            // color: {
-            //     border: '#222222',
-            //     background: '#666666'
-            // }
         },
         edges: {
             color: 'lightgray',
             font: { align: 'middle' }
-        },
-        editable: false
+        }
     };
     var nw = new vis.Network(container, data, options);
     var selected = null;
@@ -95,6 +85,39 @@ function getNode(id) {
     }
 
     return null;
+}
+
+function getNode(n) {
+    node = { id: n.id, label: shortName(n.id, n) };
+    if (n.id == 'josefinhillbom' || n.id == 'simonhillbom') {
+        //node.value = 150;
+        if (n.id == 'josefinhillbom') {
+            node.color = {
+                background: '#ffffff',
+                border: '#5b5b5b'
+            }
+        } else {
+            node.color = {
+                background: '#b5b0b2',
+                border: '#5b5b5b'
+            }
+        }
+    } else {
+        node.value = 30
+        if (n.p) {
+            node.color = {
+                background: '#03cffc',
+                border: '#02a5c9'
+            }
+        } else {
+            node.color = {
+                background: '#ff7ab2',
+                border: '#d46694'
+            }
+        }
+    }
+
+    return node;
 }
 
 // create an array with edges
@@ -205,11 +228,13 @@ var people = [
     },
     {
         name: "Simon Hillbom",
-        id: "simonhillbom"
+        id: "simonhillbom",
+        p: true
     },
     {
         name: "Alexander Roserlius",
-        id: "alexanderroserlius"
+        id: "alexanderroserlius",
+        p: true
     },
     {
         name: "Alexandra Gustavsson",
@@ -217,11 +242,13 @@ var people = [
     },
     {
         name: "Johan Westerberg",
-        id: "johanwesterberg"
+        id: "johanwesterberg",
+        p: true
     },
     {
         name: "Alfred Karlsson",
-        id: "alfredkarlsson"
+        id: "alfredkarlsson",
+        p: true
     },
     {
         name: "Alva Karlsson",
@@ -233,7 +260,8 @@ var people = [
     },
     {
         name: "Sune Börjesson",
-        id: "sunebörjesson"
+        id: "sunebörjesson",
+        p: true
     },
     {
         name: "Annika Börjesson",
@@ -241,11 +269,13 @@ var people = [
     },
     {
         name: "Inge Börjesson",
-        id: "ingebörjesson"
+        id: "ingebörjesson",
+        p: true
     },
     {
         name: "Börje Karlsson",
-        id: "börjekarlsson"
+        id: "börjekarlsson",
+        p: true
     },
     {
         name: "Eva Lise Karlsson",
@@ -257,7 +287,8 @@ var people = [
     },
     {
         name: "Anton Karlsson",
-        id: "antonkarlsson"
+        id: "antonkarlsson",
+        p: true
     },
     {
         name: "Elin Nyberg",
@@ -265,7 +296,8 @@ var people = [
     },
     {
         name: "Carl Elfström",
-        id: "carlelfström"
+        id: "carlelfström",
+        p: true
     },
     {
         name: "Eva Gustavsson",
@@ -273,7 +305,8 @@ var people = [
     },
     {
         name: "Johan Karlsson",
-        id: "johankarlsson"
+        id: "johankarlsson",
+        p: true
     },
     {
         name: "Sara Karlsson",
@@ -281,11 +314,13 @@ var people = [
     },
     {
         name: "Karl Gustavsson",
-        id: "karlgustavsson"
+        id: "karlgustavsson",
+        p: true
     },
     {
         name: "Lelle Nyberg",
-        id: "lellenyberg"
+        id: "lellenyberg",
+        p: true
     },
     {
         name: "Carina Karlsson",
@@ -297,7 +332,8 @@ var people = [
     },
     {
         name: "Mattias Brant",
-        id: "mattiasbrant"
+        id: "mattiasbrant",
+        p: true
     },
     {
         name: "Lina Gustavsson",
@@ -305,11 +341,13 @@ var people = [
     },
     {
         name: "Ludvig Roserlius",
-        id: "ludvigroserlius"
+        id: "ludvigroserlius",
+        p: true
     },
     {
         name: "Niclas Gamme",
-        id: "niclasgamme"
+        id: "niclasgamme",
+        p: true
     },
     {
         name: "Teresia Börjesson",
@@ -317,7 +355,8 @@ var people = [
     },
     {
         name: "Olof Nyberg",
-        id: "olofnyberg"
+        id: "olofnyberg",
+        p: true
     },
     {
         name: "Viktoria Börjesson",
@@ -325,11 +364,13 @@ var people = [
     },
     {
         name: "Johannes Börjesson",
-        id: "johannesbörjesson"
+        id: "johannesbörjesson",
+        p: true
     },
     {
         name: "Dag Lindahl",
-        id: "daglindahl"
+        id: "daglindahl",
+        p: true
     },
     {
         name: "Elin Nilsson",
@@ -337,11 +378,13 @@ var people = [
     },
     {
         name: "Robin Lindberg",
-        id: "robinlindberg"
+        id: "robinlindberg",
+        p: true
     },
     {
         name: "Glyph Andersson",
-        id: "glyphandersson"
+        id: "glyphandersson",
+        p: true
     },
     {
         name: "Linnéa Nyman",
@@ -349,7 +392,8 @@ var people = [
     },
     {
         name: "Joel Lindholm",
-        id: "joellindholm"
+        id: "joellindholm",
+        p: true
     },
     {
         name: "Nikita Maldaner Frohm",
@@ -357,7 +401,8 @@ var people = [
     },
     {
         name: "Kaiser Åkerberg",
-        id: "kaiseråkerberg"
+        id: "kaiseråkerberg",
+        p: true
     },
     {
         name: "Sara Lindgren",
@@ -365,7 +410,8 @@ var people = [
     },
     {
         name: "Mazdak Farzone",
-        id: "mazdakfarzone"
+        id: "mazdakfarzone",
+        p: true
     },
     {
         name: "Sandra Olsson",
@@ -373,7 +419,8 @@ var people = [
     },
     {
         name: "Perry Lorén Perván",
-        id: "perrylorénperván"
+        id: "perrylorénperván",
+        p: true
     },
     {
         name: "Gabriella Lorén Perván",
@@ -381,7 +428,8 @@ var people = [
     },
     {
         name: "Peter Seimar",
-        id: "peterseimar"
+        id: "peterseimar",
+        p: true
     },
     {
         name: "Sanne Wintren",
@@ -389,11 +437,13 @@ var people = [
     },
     {
         name: "Niklas Wintren",
-        id: "niklaswintren"
+        id: "niklaswintren",
+        p: true
     },
     {
         name: "Björn Hillbom",
-        id: "björnhillbom"
+        id: "björnhillbom",
+        p: true
     },
     {
         name: "Jeanette Hillbom",
@@ -405,7 +455,8 @@ var people = [
     },
     {
         name: "David Håkansson",
-        id: "davidhåkansson"
+        id: "davidhåkansson",
+        p: true
     },
     {
         name: "Elin Nyström",
@@ -413,11 +464,13 @@ var people = [
     },
     {
         name: "Emil Hedlund",
-        id: "emilhedlund"
+        id: "emilhedlund",
+        p: true
     },
     {
         name: "Fabian Lagerstedt",
-        id: "fabianlagerstedt"
+        id: "fabianlagerstedt",
+        p: true
     },
     {
         name: "Filippa Lagerstedt",
@@ -429,7 +482,8 @@ var people = [
     },
     {
         name: "Jonas Lagerstedt",
-        id: "jonaslagerstedt"
+        id: "jonaslagerstedt",
+        p: true
     },
     {
         name: "Tintin Lagerstedt",
@@ -437,11 +491,13 @@ var people = [
     },
     {
         name: "Jonathan Lagerstedt",
-        id: "jonathanlagerstedt"
+        id: "jonathanlagerstedt",
+        p: true
     },
     {
         name: "Örjan Hillbom",
-        id: "örjanhillbom"
+        id: "örjanhillbom",
+        p: true
     },
     {
         name: "Lotta Hillbom",
@@ -449,7 +505,8 @@ var people = [
     },
     {
         name: "Samuel Zeitler",
-        id: "samuelzeitler"
+        id: "samuelzeitler",
+        p: true
     },
     {
         name: "Sofie Hillbom",
