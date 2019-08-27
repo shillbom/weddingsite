@@ -26,7 +26,15 @@ function initGraph() {
         edges: {
             color: 'lightgray',
             font: { align: 'middle' }
-        }
+        },
+        physics: {
+            solver: 'forceAtlas2Based'
+        },
+        // layout: {
+        //     hierarchical: {
+        //         enabled: true
+        //     }
+        // }
     };
     var nw = new vis.Network(container, data, options);
     var selected = null;
