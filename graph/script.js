@@ -57,6 +57,23 @@ function initGraph() {
             selected = node;
         }  
     });
+    var reset = false;
+    nw.on("zoom", function (params) {
+        if (reset) {
+            return;
+        }
+        console.log(params.scale)
+        if (params.scale > 7) {
+            reset = true;
+            window.setTimeout(() => {
+                nw.fit({
+                    nodes:['josefinhillbom', 'simonhillbom'],
+                    animation: true
+                  });
+                reset = false;
+            }, 1500)
+        }
+    });
 
     window.setTimeout(() => {
         nw.fit({
