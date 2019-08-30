@@ -2,11 +2,17 @@ if (location.protocol !== "https:" && location.protocol !== "file:") {
     location.protocol = "https:";
 }
 
+var nw = null;
 window.onload = function () {
     initGraph();
+    nw.on("stabilizationIterationsDone", function () {
+        network.setOptions({
+            nodes: {physics: false},
+            edges: {physics: false},
+        });
+    });
 };
 
-var nw = null;
 function initGraph() {
     var dataset = [];
 
@@ -127,15 +133,16 @@ function createNode(n) {
             }
         }
     } else {
-        if (n.p) {
+        var color = Math.floor(Math.random() * 3); 
+        if (color === 0){
             node.color = {
-                background: '#03cffc',
-                border: '#02a5c9'
+                background: '#ff9f80',
+                border: '#ff8c66'
             }
-        } else {
+        } else if (color === 1) {
             node.color = {
-                background: '#ff7ab2',
-                border: '#d46694'
+                background: '#f280a1',
+                border: '#ee5d86'
             }
         }
     }
@@ -301,7 +308,7 @@ var people = [
         p: true
     },
     {
-        name: "Eva Lise Karlsson",
+        name: "Eva-Lise Karlsson",
         id: "evalisekarlsson"
     },
     {
@@ -407,6 +414,7 @@ var people = [
         p: true
     },
     {
+        fullname: "Fredrik Andersson",
         name: "Glyph Andersson",
         id: "glyphandersson",
         p: true
@@ -425,6 +433,7 @@ var people = [
         id: "nikitamaldanerfrohm"
     },
     {
+        fullname: 'Fredrik Åkerberg',
         name: "Kaiser Åkerberg",
         id: "kaiseråkerberg",
         p: true
@@ -443,6 +452,7 @@ var people = [
         id: "sandraolsson"
     },
     {
+        fullname: 'Daniel Lorén Perván',
         name: "Perry Lorén Perván",
         id: "perrylorénperván",
         p: true
