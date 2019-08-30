@@ -33,13 +33,15 @@ function initGraph() {
             font: { align: 'middle' }
         },
         physics: {
-            solver: 'forceAtlas2Based'
-        },
-        // layout: {
-        //     hierarchical: {
-        //         enabled: true
-        //     }
-        // }
+            solver: 'forceAtlas2Based',
+            timestep: 0.35,
+            stabilization: {
+                enabled: true,
+                iterations: 100,
+                updateInterval: 25
+            }
+
+        }
     };
     nw = new vis.Network(container, data, options);
     var selected = null;
