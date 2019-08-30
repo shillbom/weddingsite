@@ -1,6 +1,11 @@
+if (location.protocol !== "https:") {
+    location.protocol = "https:";
+}
+
 window.onload = function () {
     initGraph();
 };
+
 var nw = null;
 function initGraph() {
     var dataset = [];
