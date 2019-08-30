@@ -1,4 +1,4 @@
-if (location.protocol !== "https:") {
+if (location.protocol !== "https:" && location.protocol !== "file:") {
     location.protocol = "https:";
 }
 
