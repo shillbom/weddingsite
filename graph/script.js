@@ -58,7 +58,8 @@ function initGraph() {
             
             selected = null;
         } else {
-            nodes.update({ id: node, label: getNode(node).name, size: 80 })
+            var name = getNode(node);
+            nodes.update({ id: node, label: name.fullname || name.name, size: 80 })
 
             if (selected != null) nodes.update({ id: selected, label: shortName(selected), size: null });
             selected = node;
@@ -254,7 +255,7 @@ var people = [
         p: true
     },
     {
-        name: "Alexander Roserlius",
+        name: "Alexander Roselius",
         id: "alexanderroserlius",
         p: true
     },
@@ -340,6 +341,7 @@ var people = [
         p: true
     },
     {
+        fullname: 'Lennart Lyberg',
         name: "Lelle Nyberg",
         id: "lellenyberg",
         p: true
@@ -349,6 +351,7 @@ var people = [
         id: "carinakarlsson"
     },
     {
+        fullname: 'Annika Börjesson',
         name: "Lill-Annika Börjesson",
         id: "lill-annikabörjesson"
     },
@@ -362,7 +365,7 @@ var people = [
         id: "linagustavsson"
     },
     {
-        name: "Ludvig Roserlius",
+        name: "Ludwig Roselius",
         id: "ludvigroserlius",
         p: true
     },
